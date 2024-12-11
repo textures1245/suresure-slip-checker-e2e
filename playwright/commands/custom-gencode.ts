@@ -4,7 +4,7 @@ const path = require("path");
 
 (async () => {
   const pathToExtension = path.resolve(
-    "/Users/phakh/Library/Application Support/Google/Chrome/Default/Extensions/ophjlpahpchlmihnnnihgmmeilfjmjjc/3.6.0_0"
+    process.env.LINE_EXTENSION_PATH || "path/to/extension"
   );
   const context = await chromium.launchPersistentContext("", {
     headless: false,
@@ -14,10 +14,10 @@ const path = require("path");
     ],
   });
 
-    const page = await context.newPage();
-    await page.goto(
-      "chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html"
-    );
+  const page = await context.newPage();
+  await page.goto(
+    "chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html"
+  );
 
   // Close the browser context to save the storage state
   //   await context.close();

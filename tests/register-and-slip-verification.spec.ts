@@ -2,8 +2,8 @@ import { test, expect } from "./../playwright/supports/fixtures";
 
 test.describe("register-and-slip-verfification", () => {
   const auth = {
-    email: "sirprak1245@gmail.com",
-    pw: "@Rty0654209589",
+    email: process.env.LINE_EMAIL!,
+    pw: process.env.LINE_PASSWORD!,
   };
 
   const roomConn = {
@@ -185,7 +185,7 @@ test.describe("register-and-slip-verfification", () => {
     await chatCreatePopup.locator("button:nth-of-type(2)").click();
 
     //- slip verification
-    await page.locator("textarea-ex").click();    
+    await page.locator("textarea-ex").click();
     await page.waitForTimeout(3 * 1000); // Wait for one second
     await page.keyboard.press("Meta+V");
 

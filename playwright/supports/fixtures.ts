@@ -12,8 +12,7 @@ export const test = base.extend<{
   backgroundPage: any;
 }>({
   context: async ({}, use) => {
-    const pathToExtension =
-      "/Users/phakh/Library/Application Support/Google/Chrome/Default/Extensions/ophjlpahpchlmihnnnihgmmeilfjmjjc/3.6.1_0";
+    const pathToExtension = process.env.LINE_EXTENSION_PATH || "path/to/extension";
     const context = await chromium.launchPersistentContext("", {
       headless: false,
       args: [

@@ -2,8 +2,8 @@ import { expect, test } from "./../playwright/supports/fixtures";
 
 test.describe("slip-verification", () => {
   const auth = {
-    email: "sirprak1245@gmail.com",
-    pw: "@Rty0654209589",
+    email: process.env.LINE_EMAIL!,
+    pw: process.env.LINE_PASSWORD!,
   };
 
   test("tests line-sign-in -> negative-slip-verification", async ({ page }) => {

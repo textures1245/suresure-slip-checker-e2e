@@ -2,8 +2,8 @@ import { expect, test } from "../playwright/supports/fixtures";
 
 test.describe("room-registration", () => {
   const auth = {
-    email: ,
-    pw: "@Rty0654209589",
+    email: process.env.LINE_EMAIL!,
+    pw: process.env.LINE_PASSWORD!,
   };
 
   const roomConn = {
